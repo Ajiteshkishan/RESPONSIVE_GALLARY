@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#wrapper{
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.container{
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.container h1{
+  margin: 20px 100px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width:32%;
+  /* 32 as it has 96 percent -> remaining 4%  */
+  position:relative;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+ .card img{
+  width: 100%;
+   height: 100%;
+  /* border-radius: 10px;  */
+  /* here we can give border radius also but it will decrese the size of img */
+  filter: grayscale();
+  box-shadow: 0 0 20px #333;
+  object-fit: cover;
+  /* crop insted if squish */
+ }
+
+ .card:hover {
+  transform: scale(1.08);
+  /* enlarge the img size scale */
+  transition: 0.8s;
+  filter: drop-shadow(0 0 10px #333);
+  /* adds a soft shadow around the visible shape of an element.alpha mask */
+  /* box-shadow → shadows the element’s box (rectangle, respects border-radius).
+
+drop-shadow →  drops shadow in backgraounds */
+
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.card figcaption{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px;
+  width: 100%;
+  height: 20%;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  opacity: 0;
+  /* tranparency */
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: 0.3s;
+}
+.card:hover figcaption {
+  opacity: 1;
+  transform: scale(1.02);
+}  
